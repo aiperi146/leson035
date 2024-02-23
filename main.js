@@ -123,4 +123,35 @@ const myObject1 = {
 
 
 myObject.greetEveryone();
-//В данном случае, использование стрелочной функции в качестве коллбека позволяет нам избежать проблемы с потерей контекста this внутри метода forEach, так как она автоматически захватывает контекст объекта myObject.
+
+const character = document.getElementById('character');
+const stepNumber = document.getElementById('stepNumber');
+
+let currentStep = 1; 
+
+
+function moveUp() {
+    if (currentStep < 10) { 
+        currentStep++;
+        character.style.bottom = `${currentStep * 50}px`; 
+        stepNumber.textContent = currentStep;
+    }
+}
+
+
+function moveDown() {
+    if (currentStep > 1) {
+        currentStep--;
+        character.style.bottom = `${currentStep * 50}px`;
+        stepNumber.textContent = currentStep;
+    }
+}
+
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'ArrowUp') {
+        moveUp();
+    } else if (event.key === 'ArrowDown') {
+        moveDown();
+    }
+});
