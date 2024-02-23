@@ -15,3 +15,7 @@ function printName() {
 
 firstObject.printName();
 secondObject.printName();
+
+function printName() {
+    console.log(this.name); 
+}
