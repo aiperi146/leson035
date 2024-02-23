@@ -45,3 +45,20 @@ const boundFunction = printName.bind(firstObject);
 
 boundFunction(); 
 
+
+const printNameArrow = () => {
+    console.log(this.name); 
+};
+
+
+const arr = {
+    name: "peri",
+    printNameArrow: printNameArrow 
+};
+
+const array = {
+    name: "aika",
+    printNameArrow: printNameArrow 
+};
+firstObject.printNameArrow(); 
+secondObject.printNameArrow();
