@@ -1,11 +1,11 @@
 const firstObject = {
-    name: "FirstObject",
+    name: "Peri",
     printName: printName 
 };
 
 
 const secondObject = {
-    name: "SecondObject",
+    name: "aika",
      printName: printName
 };
 
