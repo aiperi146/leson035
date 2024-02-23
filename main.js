@@ -110,3 +110,16 @@ const myObject = {
 };
 
 console.log(myObject);
+
+const myObject1 = {
+    greeting: "Привет",
+    names: ["Жаныбек", "Алина", "Иван"],
+    greetEveryone: function() {
+        this.names.forEach(name => {
+            console.log(`${this.greeting}, ${name}!`);
+        });
+    }
+};
+
+
+myObject.greetEveryone();
