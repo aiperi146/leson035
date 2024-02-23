@@ -40,3 +40,8 @@ function printName() {
 В строгом режиме же будет ошибка, так как this будет undefined, и доступ к свойству
 name у undefined вызовет TypeError.
 */
+
+const boundFunction = printName.bind(firstObject);
+
+boundFunction(); 
+
