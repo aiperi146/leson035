@@ -61,4 +61,45 @@ const array = {
     printNameArrow: printNameArrow 
 };
 firstObject.printNameArrow(); 
-secondObject.printNameArrow();
+secondObject.printNameArrow ();
+
+
+const printNameArrow2= () => {
+    console.log(this.name); 
+};
+
+
+const arr2 = {
+    name: "aika",
+    printNameArrow: printNameArrow 
+};
+
+
+const array2 = {
+    name: "peri",
+    printNameArrow: printNameArrow 
+};
+
+
+firstObject.printNameArrow(); 
+secondObject.printNameArrow(); 
+
+// printNameArrow(); 
+
+// const boundFunction = printNameArrow.bind(firstObject); 
+
+/*
+Почему мы видим те или иные результаты?
+
+1. Вызов методов объектов, основанных на стрелочной функции, приводит к выводу undefined.
+   Это происходит потому, что стрелочные функции не имеют собственного this и заимствуют его из внешнего контекста.
+   В данном случае внешний контекст - глобальная область видимости, где значение this равно undefined.
+
+2. Вызов стрелочной функции напрямую также приводит к ошибке.
+   Стрелочные функции не могут быть вызваны с методами call(), apply(), или bind(), и не могут иметь собственный this,
+   они используют this окружающего контекста, который в данном случае также является undefined в глобальной области видимости.
+
+3. Применение метода bind к стрелочной функции также вызовет ошибку.
+   Поскольку стрелочные функции не имеют собственного this и не могут быть привязаны с помощью bind(),
+   этот вызов также приведет к ошибке.
+*/
