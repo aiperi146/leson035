@@ -16,12 +16,7 @@ function printName() {
 firstObject.printName();
 secondObject.printName();
 
-function printName() {
-    console.log(this.name); 
-}
-function printName() {
-    console.log(this.name); 
-}
+
 
 // printName();
 
@@ -53,15 +48,15 @@ const printNameArrow = () => {
 
 const arr = {
     name: "peri",
-    printNameArrow: printNameArrow 
+    printNameArrow: printNameArrow
 };
+arr.printNameArrow(); 
 
 const array = {
     name: "aika",
     printNameArrow: printNameArrow 
 };
-firstObject.printNameArrow(); 
-secondObject.printNameArrow ();
+arr.printNameArrow();
 
 
 const printNameArrow2= () => {
@@ -81,37 +76,31 @@ const array2 = {
 };
 
 
-firstObject.printNameArrow(); 
-secondObject.printNameArrow(); 
+firstObject.printName(); 
+secondObject.printName(); 
 
-// printNameArrow(); 
+// // printNameArrow(); 
 
-// const boundFunction = printNameArrow.bind(firstObject); 
+// // const boundFunction = printNameArrow.bind(firstObject); 
 
-/*
-Почему мы видим те или иные результаты?
+// /*
+// Почему мы видим те или иные результаты?
 
-1. Вызов методов объектов, основанных на стрелочной функции, приводит к выводу undefined.
-   Это происходит потому, что стрелочные функции не имеют собственного this и заимствуют его из внешнего контекста.
-   В данном случае внешний контекст - глобальная область видимости, где значение this равно undefined.
+// 1. Вызов методов объектов, основанных на стрелочной функции, приводит к выводу undefined.
+//    Это происходит потому, что стрелочные функции не имеют собственного this и заимствуют его из внешнего контекста.
+//    В данном случае внешний контекст - глобальная область видимости, где значение this равно undefined.
 
-2. Вызов стрелочной функции напрямую также приводит к ошибке.
-   Стрелочные функции не могут быть вызваны с методами call(), apply(), или bind(), и не могут иметь собственный this,
-   они используют this окружающего контекста, который в данном случае также является undefined в глобальной области видимости.
+// 2. Вызов стрелочной функции напрямую также приводит к ошибке.
+//    Стрелочные функции не могут быть вызваны с методами call(), apply(), или bind(), и не могут иметь собственный this,
+//    они используют this окружающего контекста, который в данном случае также является undefined в глобальной области видимости.
 
-3. Применение метода bind к стрелочной функции также вызовет ошибку.
-   Поскольку стрелочные функции не имеют собственного this и не могут быть привязаны с помощью bind(),
-   этот вызов также приведет к ошибке.
-*/
+// 3. Применение метода bind к стрелочной функции также вызовет ошибку.
+//    Поскольку стрелочные функции не имеют собственного this и не могут быть привязаны с помощью bind(),
+//    этот вызов также приведет к ошибке.
+// */
+
 
 const myObject = {
-    greeting: "Привет",
-    names: ["Жаныбек", "Алина", "Иван"]
-};
-
-console.log(myObject);
-
-const myObject1 = {
     greeting: "Привет",
     names: ["Жаныбек", "Алина", "Иван"],
     greetEveryone: function() {
@@ -122,36 +111,6 @@ const myObject1 = {
 };
 
 
-myObject.greetEveryone();
-
-const character = document.getElementById('character');
-const stepNumber = document.getElementById('stepNumber');
-
-let currentStep = 1; 
+myObject.greetEveryone()
 
 
-function moveUp() {
-    if (currentStep < 10) { 
-        currentStep++;
-        character.style.bottom = `${currentStep * 50}px`; 
-        stepNumber.textContent = currentStep;
-    }
-}
-
-
-function moveDown() {
-    if (currentStep > 1) {
-        currentStep--;
-        character.style.bottom = `${currentStep * 50}px`;
-        stepNumber.textContent = currentStep;
-    }
-}
-
-
-document.addEventListener('keydown', event => {
-    if (event.key === 'ArrowUp') {
-        moveUp();
-    } else if (event.key === 'ArrowDown') {
-        moveDown();
-    }
-});
